@@ -4,6 +4,10 @@
     </head>
     <body>
         <h1>hi!</h1>
-        <p> {{ posts }} </p>
+        <p>
+          {% for post in posts %}
+          {{ post }}
+          {% endfor %}
+        </p>
     </body>
 </html>
