@@ -1,11 +1,12 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
+{% extends 'techioapp/index.html' %}
+
+{% block content %}
         <h1>hi!</h1>
           {% for todo in todos %}
-          <p>{{ todo }}</p>
+          <div>
+            <p><b><a href="">{{ todo.title }}</a></b> - by {{ todo.deadline_date }}</p>
+            <p>{{ todo.text|linebreaksbr }}</p>
+          </div>
           {% endfor %}
-    </body>
-</html>
+
+{% endblock content %}
