@@ -4,7 +4,7 @@
         <h1>hi!</h1>
           {% for todo in todos %}
           <div>
-            <p><b><a href="">{{ todo.title }}</a></b> - by {{ todo.deadline_date }}</p>
+            <p><b><a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.title }}</a></b> - by {{ todo.deadline_date }}</p>
             <p>{{ todo.text|linebreaksbr }}</p>
           </div>
           {% endfor %}
