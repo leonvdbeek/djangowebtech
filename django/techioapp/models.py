@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-class todo(models.Model):
+class Todo(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()

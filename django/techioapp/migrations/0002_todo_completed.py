@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='todo',
+            model_name='Todo',
             name='completed',
             field=models.BooleanField(default=False),
         ),
