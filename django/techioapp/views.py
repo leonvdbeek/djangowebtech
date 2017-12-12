@@ -8,4 +8,4 @@ def todo_list(request):
 
 def todo_detail(request, pk):
     todo = get_object_or_404(todo, pk=pk)
-    return render(request, 'list/todo_detail.html', {'todo': todo})
+    return render(request, 'techioapp/todo_detail.html', {'todo': todo})
