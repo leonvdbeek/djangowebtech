@@ -3,9 +3,9 @@
 
 {% block content %}
     <div class="todo">
-        {% if todo.completed_date %}
+        {% if todo.deadline_date %}
             <div class="date">
-                {{ todo.completed_date }}
+                {{ todo.deadline_date }}
             </div>
         {% endif %}
         <h1>{{ todo.title }}</h1>
