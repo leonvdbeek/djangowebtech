@@ -23,5 +23,5 @@ def todo_new(request):
             todo.save()
             return redirect('todo_detail', pk=todo.pk)
     else:
-        form = TodoForm()
+        form = Todoform()
     return render(request, 'techioapp/todo_edit.html', {'form': form})
