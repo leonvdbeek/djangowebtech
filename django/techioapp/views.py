@@ -25,3 +25,17 @@ def todo_new(request):
     else:
         form = Todoform()
     return render(request, 'techioapp/todo_edit.html', {'form': form})
+
+def todo_edit(request, pk):
+    todo = get_object_or_404(Todo, pk=pk)
+    if request.method == "POST":
+        form = Todoform(request.POST, instance=todo)
+        if form.is_valid():
+            todo = form.save(commit=False)
+            todo.author = request.user
+            todo.deadline_date = timezone.now()
+            todo.save()
+            return redirect('todo_detail', pk=todo.pk)
+    else:
+        form = Todoform(instance=todo)
+    return render(request, 'techioapp/todo_edit.html', {'form': form})

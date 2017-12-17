@@ -8,6 +8,7 @@
                 {{ todo.deadline_date }}
             </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'todo_edit' pk=todo.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h1>{{ todo.title }}</h1>
         <p>{{ todo.text|linebreaksbr }}</p>
     </div>
