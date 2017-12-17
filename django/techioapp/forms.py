@@ -2,7 +2,7 @@ from django import forms
 
 from .models import Todo
 
-class PostForm(forms.ModelForm):
+class Todoform(forms.ModelForm):
 
     class Meta:
         model = Todo
