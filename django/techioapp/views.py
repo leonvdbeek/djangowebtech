@@ -15,13 +15,13 @@ def todo_detail(request, pk):
 
 def todo_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = Todoform(request.POST)
         if form.is_valid():
             todo = form.save(commit=False)
             todo.author = request.user
             todo.deadline_date = timezone.now()
             todo.save()
-            return redirect('post_detail', pk=todo.pk)
+            return redirect('todo_detail', pk=todo.pk)
     else:
-        form = PostForm()
+        form = TodoForm()
     return render(request, 'techioapp/todo_edit.html', {'form': form})
