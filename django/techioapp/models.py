@@ -22,7 +22,7 @@ class Item(models.Model):
     info = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     stock = models.IntegerField()
-    upload = models.FileField(upload_to='static/img')
+    upload = models.FileField(upload_to='djangowebtech/django/techioapp/static/img')
 
     def bought(self):
         self.stock = self.stock-1
