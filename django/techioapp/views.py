@@ -8,16 +8,19 @@ def item_list(request):
     items = Item.objects.all()
     return render(request, 'techioapp/item_list.html', {'items': items})
 
+
 def item_new(request):
     if request.method == "POST":
         form = Itemform(request.POST)
         if form.is_valid():
             item = form.save(commit=False)
+            item.upload = request.FILES['upload']
             item.save()
             return redirect('techioapp/item_detail.html', pk=item.pk)
     else:
         form = Itemform()
     return render(request, 'techioapp/item_edit.html', {'form': form})
+
 
 def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
