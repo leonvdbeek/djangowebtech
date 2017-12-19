@@ -31,6 +31,11 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#">How does it work?</a></li>
+            <li>
+              {% if user.is_authenticated %}
+                  <a href="{% url 'todo_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+              {% endif %}
+            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a class="glyphicon glyphicon-shopping-cart cartbutton" href="#"></a></li>
@@ -54,211 +59,18 @@
 
 
 <!--- End of jumbotron --->
-{% if user.is_authenticated %}
-    <a href="{% url 'todo_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-{% endif %}
+
 
 
 <!--- This is the content oh all the cards --->
 <div id="wrap">
   <div id="main" class="container-fluid">
     <div class="container">
-  <div class="row">
-    {% block content %}
-    {% endblock %}
-
-    <!--
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/servo.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">This is a normal sized servo with high torque. Very usefull for making stuff move certain angles or modify it for continuous rotation so you have a very high torque motor!</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Strong servo</h3>
-          <p align="center">
-            Per piece: €6,75
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
+      <div class="row">
+        {% block content %}
+        {% endblock %}
       </div>
     </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/miniservo.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">This is a small continuous rotation servo which can fit almost everywhere! However it has less torque than a full sized one servo.</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Micro servo</h3>
-          <p align="center">
-            Per piece: €4,75
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/resistor.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">10 pieces of 470 ohm resistor in a nice package.</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">470 ohm resistor</h3>
-          <p align="center">
-            Per 10 pieces: €1,75
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/tempsensor.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">This is a humidity and temperature sensor. model: RHT03</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Temp + Humidity sensor</h3>
-          <p align="center">
-            Per piece: €6,75
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/ledring.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">This is a very cool RGB ledring to use for experimenting or in your projects!</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">RGB ledring</h3>
-          <p align="center">
-            Per piece: €7,50
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/rgbleds.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">10 pieces of RGB leds that you can use in your project for whatever you like.</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">RGB leds</h3>
-          <p align="center">
-            Per 10 pieces: €10,00
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/tshirt.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">An arduino T-shirt to show how fond you are of Arduino!</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Arduino T-shirt</h3>
-          <p align="center">
-            Per piece: €8,75
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/lcd.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">Using this LCD screen you can make your arduino projects even more exiting! Maybe let it display a video or the status of your Home security system, everything is possible!</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Arduino LCD screen</h3>
-          <p align="center">
-            Per piece: €20,99
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/arduinozero.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">This is the bigger brother of the arduino Nano and is way easier to tweak and operate. It is a must for experimenting with arduinos!</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Arduino Zero</h3>
-          <p align="center">
-            Per piece: €35,00
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div> -->
-  </div>
-</div>
   </div>
 </div>
 <!--- End of all the content --->
