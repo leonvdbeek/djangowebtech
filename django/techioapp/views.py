@@ -41,10 +41,6 @@ def item_edit(request, pk):
 
 
 
-
-
-
-
 def todo_detail(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
     return render(request, 'techioapp/todo_detail.html', {'todo': todo})
