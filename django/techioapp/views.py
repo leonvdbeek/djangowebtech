@@ -4,6 +4,7 @@ from .models import Todo, Item
 from django.shortcuts import redirect
 from .forms import Todoform, Itemform
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 def item_list(request):
     items = Item.objects.all()
