@@ -5,9 +5,6 @@ from django.shortcuts import redirect
 from .forms import Todoform
 
 
-def todo_list(request):
-    todos = Todo.objects.order_by('completed_date')
-    return render(request, 'techioapp/todo_list.html', {'todos': todos})
 
 def item_list(request):
     items = Item.objects
