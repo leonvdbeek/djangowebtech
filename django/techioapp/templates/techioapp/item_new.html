@@ -1,18 +1,9 @@
 {% extends 'techioapp/index.html' %}
 
-{% load static %}
-
-{% block new_content %}
-  <form class="bs-example form-horizontal" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <h2>Item name:</h2><br>
-    {{ itemform.name }}<br>
-    <h2>Item description</h2>
-    {{ itemform.info }}<br>
-    <h2>Image Upload</h2><br>
-    {{ itemform.upload }}<br>
-    <button class="btn btn-success" type="submit">Save</button>
-  </form>
-
-  <p><a href="{% url 'item_list' %}">Return to home</a></p>
+{% block content %}
+    <h1>New item</h1>
+    <form enctype="multipart/form-data" class="bs-example form-horizontal" method="POST" >{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
 {% endblock %}
