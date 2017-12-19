@@ -16,7 +16,7 @@ def item_new(request):
             item = form.save(commit=False)
             item.upload = request.FILES['upload']
             item.save()
-            return redirect('techioapp/item_detail.html', pk=item.pk)
+            return redirect('item_detail', pk=item.pk)
     else:
         form = Itemform()
     return render(request, 'techioapp/item_edit.html', {'form': form})
