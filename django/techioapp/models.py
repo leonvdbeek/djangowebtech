@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 import os.path
 
 class Todo(models.Model):
