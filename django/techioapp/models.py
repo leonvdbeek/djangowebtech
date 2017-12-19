@@ -23,23 +23,7 @@ class Todo(models.Model):
 
 class RenameFilesModel(models.Model):
 
-    class Item(RenameFilesModel):
-        name = models.CharField(max_length=20)
-        info = models.TextField()
-        price = models.DecimalField(max_digits=5, decimal_places=2)
-        stock = models.IntegerField()
-        file = models.ImageField(upload_to='djangowebtech/django/techioapp/static/img')
 
-        def bought(self):
-            self.stock = self.stock-1
-            self.save()
-    
-        def __str__(self):
-            return self.name
-
-    RENAME_FILES = {
-        'file': {'dest': 'uploads/photos', 'keep_ext': True}
-    }
 
     class Meta:
         abstract = True
@@ -69,3 +53,21 @@ class RenameFilesModel(models.Model):
                     setattr(self, field_name, final_name)
 
         super(RenameFilesModel, self).save(force_insert, force_update)
+
+class Item(RenameFilesModel):
+    name = models.CharField(max_length=20)
+    info = models.TextField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    stock = models.IntegerField()
+    file = models.ImageField(upload_to='djangowebtech/django/techioapp/static/img')
+
+    def bought(self):
+        self.stock = self.stock-1
+        self.save()
+
+    def __str__(self):
+        return self.name
+
+RENAME_FILES = {
+    'file': {'dest': 'uploads/photos', 'keep_ext': True}
+}
