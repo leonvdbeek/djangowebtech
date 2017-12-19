@@ -33,7 +33,7 @@
             <li><a href="#">How does it work?</a></li>
             <li>
               {% if user.is_authenticated %}
-                  <a href="{% url 'todo_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                  <a href="{% url 'item_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
               {% endif %}
             </li>
           </ul>

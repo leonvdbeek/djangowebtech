@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.item_list, name='item_list'),
-    url(r'^todo/(?P<pk>\d+)/$', views.todo_detail, name='todo_detail'),
-    url(r'^todo/new/$', views.todo_new, name='todo_new'),
-    url(r'^todo/(?P<pk>\d+)/edit/$', views.todo_edit, name='todo_edit'),
+    url(r'^item/(?P<pk>\d+)/$', views.item_detail, name='item_detail'),
+    url(r'^item/new/$', views.item_new, name='item_new'),
+    url(r'^item/(?P<pk>\d+)/edit/$', views.item_edit, name='item_edit'),
 ]

@@ -21,6 +21,9 @@
                 <p align="center">
                   Amount:<input id=number type="number" min="1" value="1">
                   </input>
+                  {% if user.is_authenticated %}
+                    <a class="btn btn-default" href="{% url 'item_edit' pk=todo.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                  {% endif %}
                   <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
                 </p>
               </div>
