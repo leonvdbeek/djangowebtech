@@ -33,7 +33,7 @@
             <li><a href="howdoesitwork">How does it work?</a></li>
             <li>
               {% if user.is_authenticated %}
-                  <a href="{% url 'item_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"> Add new Items</span></a>
+                  <a href="{% url 'item_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Add new Items</a>
               {% endif %}
             </li>
           </ul>
@@ -66,6 +66,8 @@
 
 <!--- End of jumbotron --->
 
+{% block new_content %}
+{% endblock %}
 
 
 <!--- This is the content oh all the cards --->
