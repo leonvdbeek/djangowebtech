@@ -4,8 +4,6 @@ from .models import Todo, Item
 from django.shortcuts import redirect
 from .forms import Todoform, Itemform
 
-
-
 def item_list(request):
     items = Item.objects.all()
     return render(request, 'techioapp/item_list.html', {'items': items})
@@ -14,8 +12,6 @@ def item_new(request):
     if request.method == "POST":
         form = Itemform(request.POST, request.FILES)
         if form.is_valid():
-            item = Item.objects.get(pk=item.pk)
-            item.upload = form.cleaned_data['image']
             item = form.save(commit=False)
             item.save()
             return redirect('techioapp/item_detail.html', pk=item.pk)
@@ -38,6 +34,7 @@ def item_edit(request, pk):
     else:
         form = Itemform(instance=item)
     return render(request, 'techioapp/item_edit.html', {'form': form})
+
 
 
 
