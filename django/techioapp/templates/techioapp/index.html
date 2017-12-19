@@ -37,13 +37,14 @@
               {% endif %}
             </li>
           </ul>
-          <span class="navbar-text">
-            {% if user.is_authenticated %}
-                You are logged in as an administrator.
-            {% endif %}
-          </span>
+
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="glyphicon glyphicon-shopping-cart cartbutton" href="#"></a></li>
+            <li class="navbar-text">
+              {% if user.is_authenticated %}
+                  You are logged in as an administrator.
+              {% endif %}
+            </li>
+            <li><a class="btn btn-sm btn-outline-secondary glyphicon glyphicon-shopping-cart cartbutton" href="#"></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
