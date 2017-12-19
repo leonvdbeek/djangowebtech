@@ -34,16 +34,16 @@ def howdoesitwork(request):
 def shoppingcart(request):
     return render(request, 'techioapp/shoppingcart.html')
 
-def item_edit(request, pk):
-    item = get_object_or_404(Item, pk=pk)
+def item_new(request):
     if request.method == "POST":
-        form = Itemform(request.POST, instance=item)
+        form = Itemform(request.POST, request.FILES)
         if form.is_valid():
             item = form.save(commit=False)
+            item.upload = request.FILES['upload']
             item.save()
             return redirect('item_detail', pk=item.pk)
     else:
-        form = Itemform(instance=item)
+        form = Itemform()
     return render(request, 'techioapp/item_edit.html', {'form': form})
 
 def item_remove(request, pk):
