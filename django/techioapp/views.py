@@ -7,7 +7,7 @@ from .forms import Todoform
 
 
 def item_list(request):
-    items = Item.objects
+    items = Item.objects.all()
     return render(request, 'techioapp/item_list.html', {'items': items})
 
 
