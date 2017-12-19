@@ -11,7 +11,7 @@ def item_list(request):
 
 def item_new(request):
     if request.method == "POST":
-        form = Itemform(request.POST)
+        form = Itemform(request.POST, request.FILES)
         if form.is_valid():
             item = form.save(commit=False)
             item.upload = request.FILES['upload']
