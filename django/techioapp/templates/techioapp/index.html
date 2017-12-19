@@ -30,7 +30,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'item_list' %}">Home</a></li>
-            <li><a href="#">How does it work?</a></li>
+            <li><a href="howdoesitwork">How does it work?</a></li>
             <li>
               {% if user.is_authenticated %}
                   <a href="{% url 'item_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"> Add new Items</span></a>
@@ -44,7 +44,7 @@
                   You are logged in as an administrator.
               {% endif %}
             </li>
-            <li><a class="glyphicon glyphicon-shopping-cart cartbutton" href="#"></a></li>
+            <li><a class="glyphicon glyphicon-shopping-cart cartbutton" href="howdoesitwork"></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -58,7 +58,7 @@
     <div class="jumbotron">
       <h1 align="center">Welcome to Tech.io!</h1>
       <p align="center">On this website we sell all kinds of electronic components that you can use for your projects!</p>
-      <p align="center"><a class="btn btn-primary btn-lg" href="#" role="button">How does it work?</a></p>
+      <p align="center"><a class="btn btn-primary btn-lg" href="howdoesitwork" role="button">How does it work?</a></p>
     </div>
   </div>
 
@@ -97,7 +97,7 @@
       </div>
       <div class="modal-footer">
         <button align="center" type="button" class="btn btn-default" data-dismiss="modal">continue shopping</button>
-        <a href="#" class="btn btn-primary btn-sm">Go to checkout
+        <a href="shoppingcart" class="btn btn-primary btn-sm">Go to checkout
         </a>
       </div>
     </div>
