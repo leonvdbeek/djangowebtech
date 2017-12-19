@@ -58,38 +58,14 @@
     <a href="{% url 'todo_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 {% endif %}
 
-<div class="container">
-  {% block content %}
-  {% endblock %}
-</div>
-
 
 <!--- This is the content oh all the cards --->
 <div id="wrap">
   <div id="main" class="container-fluid">
     <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="container2">
-          <img class="img fadeimage" align = "center" src="{% static 'img/arduinonano.jpg'%}" />
-          <div class="info" style="display:none">
-              <p align="center">This is a smaller version of the well-known Arduino Uno. It is the core of many DIY projects because of its low cost and high efficiency.</p>
-          </div>
-        </div>
-        <div class="caption">
-          <h3 align="center">Arduino Nano</h3>
-          <p align="center">
-            Per piece: €2,00
-          </p>
-          <p align="center">
-            Amount:<input id=number type="number" min="1" value="1">
-            </input>
-            <a href="#" class="btn btn-primary addtocartbutton" role="button" data-toggle="modal" data-target="#myModal">Add to cart</a>
-          </p>
-        </div>
-      </div>
-    </div>
+    {% block content %}
+    {% endblock %}
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <div class="container2">
