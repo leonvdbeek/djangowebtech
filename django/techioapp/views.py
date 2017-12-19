@@ -26,6 +26,12 @@ def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
     return render(request, 'techioapp/item_detail.html', {'item': item})
 
+def howdoesitwork(request):
+    return render(request, 'techioapp/howdoesitwork.html')
+
+def shoppingcart(request):
+    return render(request, 'techioapp/shoppingcart.html')
+
 def item_edit(request, pk):
     item = get_object_or_404(Item, pk=pk)
     if request.method == "POST":
