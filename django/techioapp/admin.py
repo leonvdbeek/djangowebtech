@@ -4,4 +4,3 @@ from .models import Todo, Item
 # Register your models here.
 admin.site.register(Todo)
 admin.site.register(Item)
-admin.site.register(RenameFilesModel)

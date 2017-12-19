@@ -22,9 +22,6 @@ class Todo(models.Model):
 
 
 class RenameFilesModel(models.Model):
-
-
-
     class Meta:
         abstract = True
 
