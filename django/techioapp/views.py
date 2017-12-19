@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Todo, Item
 from django.shortcuts import redirect
 from .forms import Todoform, Itemform
+from django.core.urlresolvers import reverse
 
 def item_list(request):
     items = Item.objects.all()
@@ -44,7 +45,9 @@ def item_edit(request, pk):
         form = Itemform(instance=item)
     return render(request, 'techioapp/item_edit.html', {'form': form})
 
-
+def item_remove(request, pk):
+    item = get_object_or_404(Item, pk=pk).delete()
+    return HttpResponseRedirect(reverse('item_list'))
 
 
 
