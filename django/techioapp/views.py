@@ -9,7 +9,7 @@ def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
+        filename = fs.save(/user/lenin/files/home/lenin/djangowebtech/django/techioapp/static/img, myfile)
         uploaded_file_url = fs.url(filename)
         return render(request, 'techioapp/item_new.html', {
             'uploaded_file_url': uploaded_file_url
