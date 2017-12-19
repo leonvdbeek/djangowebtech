@@ -3,6 +3,19 @@ from django.utils import timezone
 from .models import Todo, Item
 from django.shortcuts import redirect
 from .forms import Todoform, Itemform
+from django.core.files.storage import FileSystemStorage
+
+def simple_upload(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'techioapp/item_new.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'techioapp/item_new.html')
+
 
 def item_list(request):
     items = Item.objects.all()
