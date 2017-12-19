@@ -58,7 +58,7 @@ class Item(RenameFilesModel):
     info = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     stock = models.IntegerField()
-    file = models.ImageField(upload_to='djangowebtech/django/techioapp/static/temp')
+    file = models.ImageField(upload_to='djangowebtech/django/techioapp/static/temp', default = 'pic_folder/None/no-img.jpg')
 
     def bought(self):
         self.stock = self.stock-1
