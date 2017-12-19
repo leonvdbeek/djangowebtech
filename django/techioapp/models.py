@@ -22,6 +22,8 @@ class Todo(models.Model):
 
 
 class RenameFilesModel(models.Model):
+    RENAME_FILES = {}
+
     class Meta:
         abstract = True
 
@@ -56,7 +58,7 @@ class Item(RenameFilesModel):
     info = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     stock = models.IntegerField()
-    file = models.ImageField(upload_to='djangowebtech/django/techioapp/static/img')
+    file = models.ImageField(upload_to='djangowebtech/django/techioapp/static/temp')
 
     def bought(self):
         self.stock = self.stock-1
@@ -65,6 +67,6 @@ class Item(RenameFilesModel):
     def __str__(self):
         return self.name
 
-RENAME_FILES = {
-    'file': {'dest': 'uploads/photos', 'keep_ext': True}
-}
+    RENAME_FILES = {
+        'file': {'dest': 'djangowebtech/django/techioapp/static/img', 'keep_ext': True}
+    }
