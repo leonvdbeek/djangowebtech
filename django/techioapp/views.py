@@ -12,8 +12,7 @@ def item_new(request):
     if request.method == "POST":
         form = Itemform(request.POST, request.FILES)
         if form.is_valid():
-            item = form.save(commit=False)
-            item.save()
+            form.save()
             return redirect('techioapp/item_detail.html', pk=item.pk)
     else:
         form = Itemform()
