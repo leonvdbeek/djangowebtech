@@ -19,7 +19,7 @@ def item_new(request):
             return redirect('item_detail', pk=item.pk)
     else:
         form = Itemform()
-    return render(request, 'techioapp/item_edit.html', {'form': form})
+    return render(request, 'techioapp/item_new.html', {'form': form})
 
 
 def item_detail(request, pk):
