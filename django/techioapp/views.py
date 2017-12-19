@@ -12,11 +12,13 @@ def item_list(request):
 
 def item_new(request):
     if request.method == "POST":
-        form = Itemform(request.POST)
+        form = Itemform(request.POST, request.FILES)
         if form.is_valid():
+            item = Item.objects.get(pk=item.pk)
+            item.upload = form.cleaned_data['image']
             item = form.save(commit=False)
             item.save()
-            return redirect('item_detail', pk=item.pk)
+            return redirect('techioapp/item_detail.html', pk=item.pk)
     else:
         form = Itemform()
     return render(request, 'techioapp/item_edit.html', {'form': form})
