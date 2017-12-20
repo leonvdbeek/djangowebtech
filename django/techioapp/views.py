@@ -1,10 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Todo, Item
+from .models import Item
 from django.shortcuts import redirect
-from .forms import Todoform, Itemform
+from .forms import Itemform
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from rest_framework.views import APIView
+from rest_framework.response import response
+from rest_framework import status
+from .serializers import ItemSerializer
+
+class ItemList(APIView):
+    def get(self, request):
+        items = Items.object.all()
+        serializer = ItemSerializer(items, many=True)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
 
 def item_list(request):
     items = Item.objects.all()
@@ -49,37 +62,3 @@ def item_edit(request):
 def item_remove(request, pk):
     item = get_object_or_404(Item, pk=pk).delete()
     return HttpResponseRedirect(reverse('item_list'))
-
-
-
-
-def todo_detail(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)
-    return render(request, 'techioapp/todo_detail.html', {'todo': todo})
-
-def todo_new(request):
-    if request.method == "POST":
-        form = Todoform(request.POST)
-        if form.is_valid():
-            todo = form.save(commit=False)
-            todo.author = request.user
-            todo.deadline_date = timezone.now()
-            todo.save()
-            return redirect('todo_detail', pk=todo.pk)
-    else:
-        form = Todoform()
-    return render(request, 'techioapp/todo_edit.html', {'form': form})
-
-def todo_edit(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)
-    if request.method == "POST":
-        form = Todoform(request.POST, instance=todo)
-        if form.is_valid():
-            todo = form.save(commit=False)
-            todo.author = request.user
-            todo.deadline_date = timezone.now()
-            todo.save()
-            return redirect('todo_detail', pk=todo.pk)
-    else:
-        form = Todoform(instance=todo)
-    return render(request, 'techioapp/todo_edit.html', {'form': form})
