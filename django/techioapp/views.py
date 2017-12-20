@@ -20,7 +20,7 @@ class ItemList(APIView):
         pass
 
 class ItemListElement(APIView):
-    def get(self, request):
+    def get(self, request, pk):
         item = Item.objects.get(pk=pk)
         serializer = ItemSerializer(item)
         return Response(serializer.data)
