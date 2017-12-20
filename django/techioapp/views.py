@@ -11,24 +11,7 @@ from rest_framework import status
 from .serializers import ItemSerializer
 
 
-@api_view(['GET'])
-def item_collection(request):
-    if request.method == 'GET':
-        items = Item.objects.all()
-        serializer = ItemSerializer(items, many=True)
-        return Response(serializer.data)
 
-
-@api_view(['GET'])
-def item_element(request, pk):
-    try:
-        item = Item.objects.get(pk=pk)
-    except Item.DoesNotExist:
-        return HttpResponse(status=404)
-
-    if request.method == 'GET':
-        serializer = ItemSerializer(item)
-        return Response(serializer.data)
 
 def item_list(request):
     items = Item.objects.all()
