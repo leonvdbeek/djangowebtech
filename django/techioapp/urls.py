@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^item/(?P<pk>\d+)/edit/$', views.item_edit, name='item_edit'),
     url(r'^item/(?P<pk>\d+)/remove/$', views.item_remove, name='item_remove'),
     url(r'^items/$', views.ItemList.as_view()),
+    url(r'^items/(?P<pk>[0-9]+)$', views.ItemList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

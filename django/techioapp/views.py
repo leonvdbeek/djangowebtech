@@ -19,6 +19,15 @@ class ItemList(APIView):
     def post(self):
         pass
 
+class ItemListElement(APIView):
+    def get(self, request, pk):
+        item = Item.objects.get(pk=pk)
+        serializer = ItemSerializer(item)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
+
 def item_list(request):
     items = Item.objects.all()
     return render(request, 'techioapp/item_list.html', {'items': items})
