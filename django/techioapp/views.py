@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from .forms import Itemform
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ItemSerializer
