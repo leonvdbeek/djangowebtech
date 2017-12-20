@@ -10,8 +10,23 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ItemSerializer
 
+class ItemList(APIView):
+    def get(self, request):
+        items = Item.objects.all()
+        serializer = ItemSerializer(items, many=True)
+        return Response(serializer.data)
 
+    def post(self):
+        pass
 
+class ItemListElement(APIView):
+    def get(self, request):
+        item = Item.objects.get(pk=pk)
+        serializer = ItemSerializer(item)
+        return Response(serializer.data)
+
+    def post(self):
+        pass
 
 def item_list(request):
     items = Item.objects.all()
