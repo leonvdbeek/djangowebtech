@@ -12,7 +12,7 @@ from .serializers import ItemSerializer
 
 class ItemList(APIView):
     def get(self, request):
-        items = Items.object.all()
+        items = Item.object.all()
         serializer = ItemSerializer(items, many=True)
         return Response(serializer.data)
 
