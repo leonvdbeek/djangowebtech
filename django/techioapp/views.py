@@ -34,7 +34,7 @@ def howdoesitwork(request):
 def shoppingcart(request):
     return render(request, 'techioapp/shoppingcart.html')
 
-def item_new(request):
+def item_edit(request):
     if request.method == "POST":
         form = Itemform(request.POST, request.FILES)
         if form.is_valid():
