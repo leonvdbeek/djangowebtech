@@ -64,18 +64,18 @@ def item_new(request):
             return redirect('item_detail', pk=item.pk)
     else:
         form = Itemform()
-    return render(request, 'techioapp/item_new.html', {'form': form})
+    return render(request, 'techioapp/item_new.php', {'form': form})
 
 
 def item_detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
-    return render(request, 'techioapp/item_detail.html', {'item': item})
+    return render(request, 'techioapp/item_detail.php', {'item': item})
 
 def howdoesitwork(request):
-    return render(request, 'techioapp/howdoesitwork.html')
+    return render(request, 'techioapp/howdoesitwork.php')
 
 def shoppingcart(request):
-    return render(request, 'techioapp/shoppingcart.html')
+    return render(request, 'techioapp/shoppingcart.php')
 
 def item_edit(request):
     if request.method == "POST":
@@ -87,7 +87,7 @@ def item_edit(request):
             return redirect('item_detail', pk=item.pk)
     else:
         form = Itemform()
-    return render(request, 'techioapp/item_edit.html', {'form': form})
+    return render(request, 'techioapp/item_edit.php', {'form': form})
 
 def item_remove(request, pk):
     item = get_object_or_404(Item, pk=pk).delete()
