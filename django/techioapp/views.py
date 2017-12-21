@@ -51,7 +51,7 @@ class ItemListElement(APIView):
 
 def item_list(request):
     items = Item.objects.all()
-    return render(request, 'techioapp/item_list.html', {'items': items})
+    return render(request, 'techioapp/item_list.php', {'items': items})
 
 
 def item_new(request):
