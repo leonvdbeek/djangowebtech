@@ -21,7 +21,7 @@ class ItemList(APIView):
         serializer = ItemSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response (serializer.data, status=HTTP_201_CREATED)
+            return Response (serializer.data, status.HTTP_201_CREATED)
         return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
 
 class ItemListElement(APIView):
