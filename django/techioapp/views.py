@@ -9,6 +9,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ItemSerializer
+from django.http import Http404
 
 class ItemList(APIView):
     def get(self, request, format=None):
