@@ -24,13 +24,19 @@ class ItemList(APIView):
         return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
 
 class ItemListElement(APIView):
+    def get_item(self, pk):
+        try:
+            return Item.objects.get(pk=pk)
+        except Item.DoesNotExist:
+            raise Http404
+
     def get(self, request, pk, format=None):
-        item = Item.objects.get(pk=pk)
+        item = self.get_item(pk)
         serializer = ItemSerializer(item)
         return Response(serializer.data)
 
-    def post(self, request, pk, format=None):
-        item = Item.objects.get(pk=pk)
+    def put(self, request, pk, format=None):
+        item = self.get_item(pk)
         serializer = ItemSerializer(item, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -38,7 +44,7 @@ class ItemListElement(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        item = Item.objects.get(pk=pk)
+        item = self.get_item(pk)
         item.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
