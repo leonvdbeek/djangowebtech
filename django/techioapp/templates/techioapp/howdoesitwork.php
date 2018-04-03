@@ -30,10 +30,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li ><a href="{% url 'item_list' %}">Home</a></li>
-            <li class="active"><a href="howdoesitwork">How does it work?</a></li>
+            <li class="active"><a href="{% url 'howdoesitwork' %}">How does it work?</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="glyphicon glyphicon-shopping-cart cartbutton" href="shoppingcart"></a></li>
+            <li><a class="glyphicon glyphicon-shopping-cart cartbutton" href="{% url 'shoppingcart' %}"></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

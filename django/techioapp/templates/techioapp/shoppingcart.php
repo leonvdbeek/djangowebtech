@@ -23,17 +23,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{% url 'item_list' %}">
           <strong> Tech.io</strong>
         </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li ><a href="index.html">Home</a></li>
-            <li ><a href="howdoesitwork.html">How does it work?</a></li>
+            <li ><a href="{% url 'item_list' %}">Home</a></li>
+            <li ><a href="{% url 'howdoesitwork' %}">How does it work?</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a class="glyphicon glyphicon-shopping-cart cartbutton" href="shoppingcart.html"></a></li>
+            <li class="active"><a class="glyphicon glyphicon-shopping-cart cartbutton" href="{% url 'shoppingcart' %}"></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,7 +53,7 @@
 								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
 							</div>
 							<div class="col-xs-6">
-								<a href="index.html" class="btn btn-primary btn-sm btn-block">
+								<a href="{% url 'item_list' %}" class="btn btn-primary btn-sm btn-block">
 									<span class="glyphicon glyphicon-share-alt"></span> Continue shopping
 								</a>
 							</div>
@@ -62,7 +62,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-xs-2"><img class="img-responsive" src="img/arduinonano.jpg">
+						<div class="col-xs-2"><img class="img-responsive" src="http://lenin.pythonanywhere.com/static/djangowebtech/django/techioapp/static/img/arduinonano.jpg">
 						</div>
 						<div class="col-xs-4">
 							<h4 class="product-name"><strong>Arduino Nano</strong></h4><h4><small>This is a smaller version of the well-known Arduino Uno. It is the core of many DIY projects because of its low cost and high efficiency.</small></h4>
@@ -83,7 +83,7 @@
 					</div>
 					<hr>
 					<div class="row">
-						<div class="col-xs-2"><img class="img-responsive" src="img/servo.jpg">
+						<div class="col-xs-2"><img class="img-responsive" src="http://lenin.pythonanywhere.com/static/djangowebtech/django/techioapp/static/img/servo.jpg">
 						</div>
 						<div class="col-xs-4">
 							<h4 class="product-name"><strong>Strong servo</strong></h4><h4><small>This is a normal sized servo with high torque. Very usefull for making stuff move certain angles or modify it for continuous rotation so you have a very high torque motor!</small></h4>
@@ -141,10 +141,10 @@
 <footer id="footer" class="footer">
   <div class="container">
     <p>
-      Designed and built with all the love in the world by Léon van de Beek for the course WebTechnology (2ID50) at the Eindhoven University of Technology.
+      Designed and built with all the love in the world by 'Lenin' for the course WebTechnology (2ID50) at the Eindhoven University of Technology.
     </p>
     <p align="center">
-      Copyright © 2017 Léon van de Beek
+      Copyright © 2017 'Lenin'
     </p>
   </div>
 </footer>
