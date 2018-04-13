@@ -11,6 +11,7 @@ from rest_framework import status
 from .serializers import ItemSerializer, PartySerializer, SavedSerializer, GoogleuserSerializer
 from django.http import Http404
 from datetime import date
+import datetime
 
 #unsave view which supports delete only to delete a saved party from saved
 class unsaveView(APIView):
@@ -87,7 +88,7 @@ class todayView(APIView):
 #returns a list of all parties starting after moment of request
 class futureView(APIView):
     def get(self, request, format=None):
-        parties = Party.objects.filter(start__gt=timezone.now())
+        parties = Party.objects.filter(start__gt=datetime.date.today())
         serializer = PartySerializer(parties, many=True)
         return Response(serializer.data)
 
